@@ -31,8 +31,11 @@
   const number = +prompt("Введите число для вывода его разрядов (сотен, \
 десятков, единиц):");
 
-  alert(`В числе ${number} количество сотен: ${~~(number / 100) % 10}, \
-десятков: ${~~(number / 10) % 10}, единиц: ${number % 10}`);
+  const units = number % 10;
+  const tens = Math.trunc(number / 10) % 10;
+  const hundreds = Math.trunc(number / 100) % 10;
+
+  alert(`В числе ${number} количество сотен: ${hundreds}, десятков: ${tens}, единиц: ${units}`);
 </script>
 </body>
 </html>
