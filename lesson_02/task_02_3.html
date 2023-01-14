@@ -42,7 +42,7 @@
    * @returns {number} Число.
    */
   function checkInputNumber(value) {
-    while(isNaN(value)) {
+    while(Number.isNaN(value)) {
       value = +prompt('Необходимо ввести число. Попробуйте ещё раз: ');
     }
     return value;
@@ -73,7 +73,9 @@
   const a = checkInputNumber(+prompt('Введите значение числа a: '));
   const b = checkInputNumber(+prompt('Введите значение числа b: '));
 
-  console.log(operationsWithNumbers(a, b))
+  if (operationsWithNumbers(a, b) !== undefined) {
+    console.log(operationsWithNumbers(a, b));
+  }
 </script>
 </body>
 </html>

@@ -28,20 +28,21 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
   function declinationOfNumber(count, one, two, five) {
     const remainderDivided100 = count % 100;
 
-    if (11 <= remainderDivided100 && remainderDivided100 <= 14) {
+    if (remainderDivided100 >= 11 && remainderDivided100 <= 14) {
       return five;
     }
 
     const remainderDivided10 = count % 10;
     
-    if (remainderDivided10 == 1) {
+    if (remainderDivided10 === 1) {
       return one;
     }
-    if (2 <= remainderDivided10 && remainderDivided10 <= 4) {
+    if (remainderDivided10 >= 2 && remainderDivided10 <= 4) {
       return two;
     }
     return five;
   }
+
 </script>
 </body>
 </html>
