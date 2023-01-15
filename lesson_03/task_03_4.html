@@ -17,13 +17,6 @@
 <script>
   "use strict";
 
-  /*
-  Не понял в вашем решении насчёт product.photos?.length:
-  products[1].photos.length = 0, это не null и не undefined, однако products[1]
-  всё равно не был включён в новый массив. Или не был включён как раз потому,
-  что products[1].photos.length = 0 = false?
-  */
-
   const products = [
     {
       id: 3,
@@ -51,15 +44,30 @@
     },
   ];
 
-  let productsHasPhotos= products.filter(
+  /*
+  1. Необходимо вывести в консоль массив продуктов, в котором есть хоть одна
+  фотография, используя метод filter. Исходные данные - массив products.
+  */
+
+  // Вариант 1.
+
+  const productsHasPhotos= products.filter(
     product => product.photos && product.photos.length > 0
-    );
+  );
 
   console.log(productsHasPhotos);
 
+  // Вариант 2 (решение от преподавателя).
+
+  console.log(products.filter(product => product.photos?.length));
+
   /*
-  Оставил своё решение, хотя ваше намного изящнее :)
+  2. Необходимо отсортировать массив products используя метод sort по цене,
+  начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести
+  отсортированный массив в консоль.
   */
+
+  // Вариант 1.
 
   products.sort((product1, product2) => {
     if (product1.price < product2.price) {
@@ -72,6 +80,14 @@
   })
 
   console.log(products);
+
+  // Вариант 2 (решение от преподавателя).
+
+  const products2 = Object.assign([], products);
+
+  products2.sort((product1, product2) => product1.price - product2.price);
+
+  console.log(products2);
 </script>
 </body>
 </html>
