@@ -56,13 +56,11 @@
     this.nameAuthor = nameAuthor;
     this.textPost = textPost;
     this.date = new Date();
-    this.dateTimeChangePost = this.date.toLocaleString();
   }
 
   PostES5.prototype.edit = function (textPost) {
     this.textPost = textPost;
     this.date = new Date();
-    this.dateTimeChangePost = this.date.toLocaleString();
   };
 
   function AttachedPostES5(nameAuthor, textPost) {
@@ -76,7 +74,6 @@
   AttachedPostES5.prototype.makeTextHighlighted = function() {
     this.highlighted = true;
     this.date = new Date();
-    this.dateTimeChangePost = this.date.toLocaleString();
   };
 
   //ES6 стиль
@@ -86,13 +83,11 @@
       this.nameAuthor = nameAuthor;
       this.textPost = textPost;
       this.date = new Date();
-      this.dateTimeChangePost = this.date.toLocaleString();
     }
 
     edit(TextPost) {
       this.textPost = TextPost;
       this.date = new Date();
-      this.dateTimeChangePost = this.date.toLocaleString();
     }
   }
 
@@ -102,7 +97,6 @@
     makeTextHighlighted() {
       this.highlighted = true;
       this.date = new Date();
-      this.dateTimeChangePost = this.date.toLocaleString();
     }
   }
 
