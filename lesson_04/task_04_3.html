@@ -41,7 +41,7 @@
    * Или выводит в консоль сообщение об ошибке и возвращает пустой объект.
    */
   function getDigitsOfNumber(number) {
-    if (Number.isInteger(number) == false || number < 0 || number > 999) {
+    if (!Number.isInteger(number) || number < 0 || number > 999) {
       console.error('В функцию передано не целое положительное число в диапазоне [0, 999].');
       return {};
     }
