@@ -57,18 +57,16 @@
   теги будут созданы браузером.
   */
 
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('все теги прогрузились');
-  });
+  document.addEventListener('DOMContentLoaded', () => 
+    console.log('все теги прогрузились')
+  );
 
   /*
   2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
   ресурсы страницы будут загружены.
   */
 
-  window.addEventListener('load', () => {
-    console.log("страница загрузилась");
-  });
+  window.addEventListener('load', () => console.log("страница загрузилась"));
 
   /*
   3. При клике на какой-либо тег на странице в консоль должно выводиться
@@ -79,12 +77,16 @@
   которому был совершен клик.
   Необходимо использовать делегирование.
   */
+
+  // Варинат 1.
  
-  document.querySelector('*').addEventListener('click', event => {
+  document.querySelector('body').addEventListener('click', event => {
     const checkStr = event.target.classList.contains("super_element") 
       ? 'присутствует' : 'отсутствует';
     console.log(`Класс "super_element" ${checkStr} в элементе "${event.target.tagName.toLowerCase()}".`);
   });
+
+  // Можно было написать просто document.addEventListener(...)
 
   /*
   4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
@@ -95,8 +97,7 @@
 
   document
     .querySelector('textarea')
-    .addEventListener('mouseover', () => 
-    console.log("Вы навели на textarea"));
+    .addEventListener('mouseover', () => console.log("Вы навели на textarea"));
 
   /*
   5. Необходимо повесить событие клика на тег ul. В обработчике события в
@@ -107,10 +108,9 @@
    */
 
   document.querySelector('ul').addEventListener('click', event => {
-    if(event.target.tagName !== 'BUTTON') {
+    if (event.target.tagName !== 'BUTTON') {
       return;
     }
-
     console.log(event.target.innerText);
   });
 
@@ -122,7 +122,9 @@
 
   /*
   Потому что событие "click" начинает всплывать, и сначала встретится тег ul,
-  а затем все элементы (document.querySelector('*')).
+  а затем затем встретится тег html, потому что идёт считывание файла сверху 
+  вниз, и когда попадается первый попавшийся элемент (в данном случае тег html), 
+  у него вызывается обработчик события.
   */
 
   /*

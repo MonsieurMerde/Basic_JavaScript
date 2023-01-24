@@ -90,7 +90,9 @@
   Атрибут "class" содержит значение "btn btn-secondary dropdown-toggle"
    */
 
-  const attributes = document.querySelector('.btn.dropdown-toggle').attributes;
+  const attributes = document
+    .querySelector('.btn.dropdown-toggle')
+    .attributes;
 
   for (const attribute of attributes) {
     console.log(`Атрибут "${attribute.name}" содержит значение "${attribute.value}"`);

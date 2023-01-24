@@ -65,7 +65,7 @@
   5. Выведите содержимое тега title в консоль.
    */
 
-  console.log(document.title);
+   console.log(document.title);
 
   /*
   6. Получите элемент с классом "card-title" и выведите его родительский узел
@@ -79,15 +79,23 @@
   тег в начало элемента, который имеет класс "card".
    */
 
+  // Вариант 1.
+
   document
     .querySelector('.card')
     .insertAdjacentHTML('afterbegin', '<p>Привет</p>');
+
+  // Вариант 2 (решение преподавателя).
+
+  const pTag = document.createElement('p');
+  pTag.textContent = 'Привет';
+  document.querySelector('.card').prepend(pTag);
 
   /*
   8. Удалите тег h6 на странице.
    */
 
-  document.querySelector('h6').remove();
+   document.querySelector('h6').remove();
 </script>
 </body>
 </html>
