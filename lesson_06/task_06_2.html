@@ -67,11 +67,9 @@
   */
 
   const spanEl = document.querySelector('span');
-
   document.querySelector('#from').addEventListener('input', event => 
     spanEl.textContent = event.target.value
   );
-
 
   /*
   2. При клике на кнопку с классом messageBtn необходимо элементу с классом
@@ -83,7 +81,7 @@
   const buttonEl = document.querySelector('.messageBtn');
   const message = document.querySelector('.message');
   buttonEl.addEventListener('click', () => {
-    message.classList.add('animate_animated', 'animate__fadeInLeftBig');
+    message.classList.add('animate__animated', 'animate__fadeInLeftBig');
     message.style.visibility = 'visible';
   });
 
@@ -109,11 +107,14 @@
     });
   });
 
-  formEl.addEventListener('input', event =>
+  formEl.addEventListener('input', event => {
+    if (!event.target.classList.contains('form-control')) {
+      return;
+    }
     event.target.value === '' 
       ? event.target.classList.add('error') 
       : event.target.classList.remove('error')
-  );
+  });
 </script>
 </body>
 </html>

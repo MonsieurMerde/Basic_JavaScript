@@ -43,14 +43,16 @@
   1. Установите всем элементам с классом "productName" размер шрифта 24px.
    */
 
-  document.querySelectorAll('.productName')
+  document
+    .querySelectorAll('.productName')
     .forEach(el => el.style.fontSize = '24px');
 
   /*
   2. Установите всем элементам с классом "product" внешний отступ справа 50px.
    */
 
-  document.querySelectorAll('.product')
+  document
+    .querySelectorAll('.product')
     .forEach(el => el.style.marginRight = '50px');
 
   /*
@@ -58,13 +60,14 @@
   "Добавлено" и кнопка должна стать неактивной.
    */
 
-  // Есть ли смысл писать document.body?
-  document.body.querySelectorAll('button').forEach(buttonEl => 
-    buttonEl.addEventListener('click', event => {
-      event.target.disabled = true;
-      event.target.innerText = 'Добавлено';
-    })
-  );
+  document.body.addEventListener('click', event => {
+    const button = event.target;
+    if (button.tagName !== 'BUTTON') {
+      return;
+    }
+    button.target.innerText = 'Добавлено';
+    button.target.disabled = true;
+  });
 
   /*
   4. Создайте полную (глубокую) копию элемента с классом product, измените в
@@ -76,7 +79,8 @@
    */
 
   const productCopy = document.querySelector('.product').cloneNode(true);
-  productCopy.querySelector('img')
+  productCopy
+    .querySelector('img')
     .src = 'https://loremflickr.com/200/300/goods?lock=37';
   productCopy.querySelector('.productName').innerText = 'Товар 4';
   document.querySelector('.product:last-of-type').replaceWith(productCopy);
