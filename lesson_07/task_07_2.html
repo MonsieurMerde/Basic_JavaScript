@@ -78,17 +78,31 @@
   };
 
   const productsEl = document.querySelector('.products');
+
+  // Вариант 1.
+
+  // document.querySelector('header').addEventListener('click', event => {
+  //   if (!event.target.classList.contains('menuButton')) {
+  //     return;
+  //   }
+  //   productsEl.innerHTML = "";
+  //   products[event.target.dataset.type]
+  //   .map(product => product.getProductMarkup())
+  //   .forEach(element => {
+  //     productsEl.innerHTML += element; 
+  //   });
+  // });
+
+  // Вариант 2 (решение от преподавателя).
+
   document.querySelector('header').addEventListener('click', event => {
     if (!event.target.classList.contains('menuButton')) {
       return;
     }
-    productsEl.innerHTML = "";
     products[event.target.dataset.type]
-    .map(product => product.getProductMarkup())
-    .forEach(element => {
-      productsEl.innerHTML += element; 
-    });
+      .map(product => product.getProductMarkup().join(""));
   });
+
 </script>
 </body>
 </html>

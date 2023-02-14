@@ -22,24 +22,37 @@
    * @return {Rectangle}
    */
 
-  /*
-  Правильно понимаю, что если прописываю функцию getArea так, как она прописана
-  ниже, то это не реализация функции-конструктора?
-  */
-
+  // Вариант 1.
+  
   function Rectangle(width, height) { 
     this.width = width;
     this.height = height;
 
     this.getArea = function() {
       return this.width * this.height;
-    }
+    };
   }
+
+  // Вариант 2 (решение от преподавателя).
+
+  function Rectangle2(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  Rectangle2.prototype.getArea = function() {
+    return this.width * this.height;
+  };
 
   const r = new Rectangle(10, 20);
   console.log(r.width); // 10
   console.log(r.height); // 20
   console.log(r.getArea()); // 200
+
+  const r2 = new Rectangle2(10, 20);
+  console.log(r2.width); // 10
+  console.log(r2.height); // 20
+  console.log(r2.getArea()); // 200
 </script>
 </body>
 </html>

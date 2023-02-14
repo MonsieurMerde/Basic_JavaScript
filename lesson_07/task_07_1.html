@@ -55,8 +55,8 @@
   общего между данной в html версткой и объектом ниже).
   */
 
-  let activeClassEl = document.querySelector('.active');
-  let textClassEl = document.querySelector('.text');
+  const activeClassEl = document.querySelector('.active');
+  const textClassEl = document.querySelector('.text');
 
   document.querySelector('.nav').addEventListener('click', event => {
     if (!event.target.classList.contains('nav-link')) {
@@ -67,7 +67,6 @@
     event.target.classList.add('active');
     activeClassEl = event.target;
 
-
     textClassEl.innerText = panelText[activeClassEl.parentNode.dataset.text];
   });
 
@@ -77,22 +76,11 @@
     H99: "Однако, программирование, в итоге, принесет свои плоды.",
   };
 
-
   /*
   2. Необходимо сделать так, чтобы при изменении input'а менялся и размер шрифта
   у элемента с id="inputDiv". Перемещение ползунка должно плавно увеличивать
   шрифт у текста, никакого резкого увеличения шрифта не должно быть при
   перетаскивании ползунка.
-   */
-
-  /*
-  Вопросы:
-  1. Можно ли было попробовать вытащить значение размера шрифта из head?
-    Например, с помощью регулярных выражений.
-  2. Так и не определился для себя, по какому принципу лучше называть перменные.
-    И напомните, пожалуйста, почему можно, например, inputEl объявлять как const,
-    хотя мы его изменяем и ошибки при этом нет? Помню, вы об этом говорили 
-    на одном из вебинаров, но не смог найти.
   */
 
   const inputEl = document.querySelector('input');
